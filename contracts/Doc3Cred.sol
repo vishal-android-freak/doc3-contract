@@ -54,7 +54,7 @@ contract Doc3Cred is ERC721, ERC721URIStorage, AccessControl {
         _burn(tokenId);
     }
 
-    function safeMint(address to, string memory uri) public onlyRole(INSTITUTE_ROLE) {
+    function safeMint(address to, string memory uri) external onlyRole(INSTITUTE_ROLE) {
         uint256 tokenId = _tokenIdCounter.current();
         _tokenIdCounter.increment();
         _safeMint(to, tokenId);
