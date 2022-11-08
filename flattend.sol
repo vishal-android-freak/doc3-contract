@@ -1,3 +1,7 @@
+// Sources flattened with hardhat v2.11.2 https://hardhat.org
+
+// File @openzeppelin/contracts/access/IAccessControl.sol@v4.7.3
+
 // SPDX-License-Identifier: MIT
 // OpenZeppelin Contracts v4.4.1 (access/IAccessControl.sol)
 
@@ -88,6 +92,13 @@ interface IAccessControl {
 }
 
 
+// File @openzeppelin/contracts/utils/Context.sol@v4.7.3
+
+// SPDX-License-Identifier: MIT
+// OpenZeppelin Contracts v4.4.1 (utils/Context.sol)
+
+pragma solidity ^0.8.0;
+
 /**
  * @dev Provides information about the current execution context, including the
  * sender of the transaction and its data. While these are generally available
@@ -108,6 +119,13 @@ abstract contract Context {
     }
 }
 
+
+// File @openzeppelin/contracts/utils/Strings.sol@v4.7.3
+
+// SPDX-License-Identifier: MIT
+// OpenZeppelin Contracts (last updated v4.7.0) (utils/Strings.sol)
+
+pragma solidity ^0.8.0;
 
 /**
  * @dev String operations.
@@ -181,6 +199,12 @@ library Strings {
 }
 
 
+// File @openzeppelin/contracts/utils/introspection/IERC165.sol@v4.7.3
+
+// SPDX-License-Identifier: MIT
+// OpenZeppelin Contracts v4.4.1 (utils/introspection/IERC165.sol)
+
+pragma solidity ^0.8.0;
 
 /**
  * @dev Interface of the ERC165 standard, as defined in the
@@ -204,6 +228,13 @@ interface IERC165 {
 }
 
 
+// File @openzeppelin/contracts/utils/introspection/ERC165.sol@v4.7.3
+
+// SPDX-License-Identifier: MIT
+// OpenZeppelin Contracts v4.4.1 (utils/introspection/ERC165.sol)
+
+pragma solidity ^0.8.0;
+
 /**
  * @dev Implementation of the {IERC165} interface.
  *
@@ -226,6 +257,15 @@ abstract contract ERC165 is IERC165 {
         return interfaceId == type(IERC165).interfaceId;
     }
 }
+
+
+// File @openzeppelin/contracts/access/AccessControl.sol@v4.7.3
+
+// SPDX-License-Identifier: MIT
+// OpenZeppelin Contracts (last updated v4.7.0) (access/AccessControl.sol)
+
+pragma solidity ^0.8.0;
+
 
 
 
@@ -468,6 +508,12 @@ abstract contract AccessControl is Context, IAccessControl, ERC165 {
 }
 
 
+// File @openzeppelin/contracts/token/ERC721/IERC721.sol@v4.7.3
+
+// SPDX-License-Identifier: MIT
+// OpenZeppelin Contracts (last updated v4.7.0) (token/ERC721/IERC721.sol)
+
+pragma solidity ^0.8.0;
 
 /**
  * @dev Required interface of an ERC721 compliant contract.
@@ -607,6 +653,12 @@ interface IERC721 is IERC165 {
 }
 
 
+// File @openzeppelin/contracts/token/ERC721/IERC721Receiver.sol@v4.7.3
+
+// SPDX-License-Identifier: MIT
+// OpenZeppelin Contracts (last updated v4.6.0) (token/ERC721/IERC721Receiver.sol)
+
+pragma solidity ^0.8.0;
 
 /**
  * @title ERC721 token receiver interface
@@ -632,7 +684,12 @@ interface IERC721Receiver {
 }
 
 
+// File @openzeppelin/contracts/token/ERC721/extensions/IERC721Metadata.sol@v4.7.3
 
+// SPDX-License-Identifier: MIT
+// OpenZeppelin Contracts v4.4.1 (token/ERC721/extensions/IERC721Metadata.sol)
+
+pragma solidity ^0.8.0;
 
 /**
  * @title ERC-721 Non-Fungible Token Standard, optional metadata extension
@@ -656,6 +713,12 @@ interface IERC721Metadata is IERC721 {
 }
 
 
+// File @openzeppelin/contracts/utils/Address.sol@v4.7.3
+
+// SPDX-License-Identifier: MIT
+// OpenZeppelin Contracts (last updated v4.7.0) (utils/Address.sol)
+
+pragma solidity ^0.8.1;
 
 /**
  * @dev Collection of functions related to the address type
@@ -874,6 +937,18 @@ library Address {
         }
     }
 }
+
+
+// File @openzeppelin/contracts/token/ERC721/ERC721.sol@v4.7.3
+
+// SPDX-License-Identifier: MIT
+// OpenZeppelin Contracts (last updated v4.7.0) (token/ERC721/ERC721.sol)
+
+pragma solidity ^0.8.0;
+
+
+
+
 
 
 
@@ -1320,6 +1395,13 @@ contract ERC721 is Context, ERC165, IERC721, IERC721Metadata {
 }
 
 
+// File @openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol@v4.7.3
+
+// SPDX-License-Identifier: MIT
+// OpenZeppelin Contracts (last updated v4.7.0) (token/ERC721/extensions/ERC721URIStorage.sol)
+
+pragma solidity ^0.8.0;
+
 /**
  * @dev ERC721 token with storage based token URI management.
  */
@@ -1377,6 +1459,12 @@ abstract contract ERC721URIStorage is ERC721 {
 }
 
 
+// File @openzeppelin/contracts/utils/Counters.sol@v4.7.3
+
+// SPDX-License-Identifier: MIT
+// OpenZeppelin Contracts v4.4.1 (utils/Counters.sol)
+
+pragma solidity ^0.8.0;
 
 /**
  * @title Counters
@@ -1418,38 +1506,57 @@ library Counters {
 }
 
 
+// File contracts/Doc3Cred.sol
+
+// SPDX-License-Identifier: MIT
+
+pragma solidity ^0.8.17;
+
+
+
 contract Doc3Cred is ERC721, ERC721URIStorage, AccessControl {
     using Counters for Counters.Counter;
 
     bytes32 private constant INSTITUTE_ROLE = keccak256("INSTITUTE_ROLE");
     bytes32 private constant USER_ROLE = keccak256("USER_ROLE");
-    bytes32 private constant ADMIN_ROLE = keccak256("ADMIN_ROLE");
-    address private _owner;
+    address private _owner = 0x1Bca22be9853c4599bb63b1B1fF7a2711fF9fbbc;
 
     struct User {
         string name;
         string email;
     }
 
-    mapping (address => string) private _institutes;
+    struct Institute {
+        string name;
+        string email;
+        bool isVerified;
+    }
+
+    mapping (address => Institute) private _institutes;
     mapping (address => User) private _users;
 
     Counters.Counter private _tokenIdCounter;
 
-    event InstituteSignUp(address indexed institute, string name);
+    event InstituteSignUp(address indexed institute, string name, string email);
+    event InstituteApproved(address indexed institute);
     event UserSignUp(address indexed user, string name, string email);
     event IssueCredential(address indexed user, address indexed institute, uint256 indexed tokenId);
     event RevokeCredential(address indexed user, address indexed institute, uint256 indexed tokenId);
 
     constructor() ERC721("Doc3", "DOC3") {
-        _owner = msg.sender;
-        _setupRole(ADMIN_ROLE, _owner);
+        _setupRole(DEFAULT_ADMIN_ROLE, _owner);
     }
 
-    function signupInstitue(address institute, string calldata name) external onlyRole(ADMIN_ROLE) {
-        _institutes[institute] = name;
-        _setupRole(INSTITUTE_ROLE, institute);
-        emit InstituteSignUp(institute, name);
+    function signupInstitue(address instituteAddress, string calldata name, string calldata email) external {
+        _institutes[instituteAddress] = Institute(name, email, false);
+        emit InstituteSignUp(instituteAddress, name, email);
+    }
+
+    function approveInstitute(address instituteAddress) external onlyRole(DEFAULT_ADMIN_ROLE) {
+        Institute storage instituteData = _institutes[instituteAddress];
+        instituteData.isVerified = true;
+        _setupRole(INSTITUTE_ROLE, instituteAddress);
+        emit InstituteApproved(instituteAddress);
     }
 
     function signupUser(address user, string calldata name, string calldata email) external {

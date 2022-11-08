@@ -28,7 +28,7 @@ contract Doc3Cred is ERC721, ERC721URIStorage, AccessControl {
 
     Counters.Counter private _tokenIdCounter;
 
-    event InstituteSignUp(address indexed institute, string name);
+    event InstituteSignUp(address indexed institute, string name, string email);
     event InstituteApproved(address indexed institute);
     event UserSignUp(address indexed user, string name, string email);
     event IssueCredential(address indexed user, address indexed institute, uint256 indexed tokenId);
@@ -40,7 +40,7 @@ contract Doc3Cred is ERC721, ERC721URIStorage, AccessControl {
 
     function signupInstitue(address instituteAddress, string calldata name, string calldata email) external {
         _institutes[instituteAddress] = Institute(name, email, false);
-        emit InstituteSignUp(instituteAddress, name);
+        emit InstituteSignUp(instituteAddress, name, email);
     }
 
     function approveInstitute(address instituteAddress) external onlyRole(DEFAULT_ADMIN_ROLE) {
